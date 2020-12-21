@@ -5,16 +5,42 @@ public class Sorts{
   */
   public static void bubbleSort(int[] data){
     for (int i = data.length; i > 1; i --) {
+      boolean change = false;
+
       for (int k = 0; k + 1 < i; k ++) {
         if (data[k] > data[k + 1]) {
           int hold = data[k + 1];
           data[k + 1] = data[k];
           data[k] = hold;
+          change = true;
         }
       }
+      if (change == false) break;
     }
-
   }
+
+
+  public static void selectionSort(int[] data){
+    for (int i = 0; i < data.length - 1; i ++) {
+      int min = data[i];
+      int index = i;
+
+      for (int k = i; k < data.length; k ++) {
+        if (data[k] < min) {
+          min = data[k];
+          index = k;
+        }
+      }
+
+      int hold = data[i];
+      data[i] = min;
+      data[index] = hold;
+    }
+  }
+
+  // public static void insertionSort(int[] data){
+  //
+  // }
 
 
 }
